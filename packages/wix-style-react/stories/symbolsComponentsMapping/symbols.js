@@ -147,7 +147,7 @@ export const pickerSymbols = {
  */
 export const otherSymbols = {
   avatar: '11.1 Avatar',
-  avatarGroup: '11.2 AvatarGroup',
+  avatarGroup: '11.2 Avatar Group',
   badge: '11.3 Badge',
   badgeSelect: '11.4 Badge Select',
   counterBadge: '11.5 Counter Badge',

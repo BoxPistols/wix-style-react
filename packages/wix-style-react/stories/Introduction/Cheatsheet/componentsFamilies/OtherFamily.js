@@ -145,9 +145,14 @@ const AvatarGroupExample = () => {
   };
   return (
     <SingleComponentSideBySide {...singleComponentProps}>
-      <Layout cols={7} justifyItems="center" alignItems="center">
-        <AvatarGroup items={avatarItems} />
-      </Layout>
+      <Box
+        direction="vertical"
+        height="100"
+        style={{ justifyContent: 'space-around' }}
+      >
+        <AvatarGroup items={avatarItems} maxItems={8} />
+        <AvatarGroup items={avatarItems} showDivider />
+      </Box>
     </SingleComponentSideBySide>
   );
 };
