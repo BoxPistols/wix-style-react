@@ -9,7 +9,7 @@ import {
 import { Tooltip } from '../../Tooltip';
 import { MobileTooltip } from './MobileTooltip';
 import { TPAComponentsConsumer } from '../../TPAComponentsConfig';
-import { TOOLTIP_COMMON_PROPS } from './tooltipCommonProps';
+import classnames from 'classnames';
 
 export interface ColorPickerItemProps extends RadioButtonProps {
   className?: string;
@@ -17,14 +17,17 @@ export interface ColorPickerItemProps extends RadioButtonProps {
   isCrossedOut?: boolean;
   tooltip?: string;
   tooltipDataHook?: string;
+  withFocusRing?: boolean;
 }
 
 interface ColorPickerItemState {
   focused: boolean;
+  focusedByKeyboard: boolean;
 }
 
 interface ColorPickerItemDefaultProps {
   tooltipDataHook: string;
+  withFocusRing: boolean;
 }
 
 /** ColorPickerItem */
@@ -35,12 +38,17 @@ export class ColorPickerItem extends React.Component<
   static displayName = colorPickerItemDataHook;
   static defaultProps: ColorPickerItemDefaultProps = {
     tooltipDataHook: colorPickerItemTooltipDataHook,
+    withFocusRing: false,
   };
 
-  state = { focused: false };
+  state = { focused: false, focusedByKeyboard: false };
 
   getRadioVisual = ({ value }: ColorPickerItemProps) => (
-    <div className={classes.radioOuter}>
+    <div
+      className={classnames(classes.radioOuter, {
+        [classes.focused]: this.props.withFocusRing && this.state.focusedByKeyboard,
+      })}
+    >
       <div
         className={classes.radioInner}
         style={{ backgroundColor: value as string }}
@@ -77,6 +85,12 @@ export class ColorPickerItem extends React.Component<
       onIconBlur: () => {
         this.setState({ focused: false });
       },
+      onFocusByKeyboard: () => {
+        this.setState({ focusedByKeyboard: true });
+      },
+      onBlur: () => {
+        this.setState({ focusedByKeyboard: false });
+      }
     };
   };
 
