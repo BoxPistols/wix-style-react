@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classnames from 'classnames';
 import { st, classes } from './TextArea.st.css';
 import { TEXT_AREA_DATA_HOOK, TEXT_AREA_ERROR_DATA_HOOK } from './dataHooks';
 import { Tooltip } from '../Tooltip';
@@ -107,11 +108,7 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const showErrorIcon = error && errorDescription;
     const { mobile: isMobile } = this.context;
 
-    const focusedBox =
-      !isMobile &&
-      withFocusRing &&
-      this.state.focused &&
-      theme === TextAreaTheme.Box;
+    const hasFocusRing = !isMobile && withFocusRing && this.state.focused;
 
     return (
       <TPAComponentsConsumer>
@@ -130,7 +127,7 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
                   success,
                   disabled,
                 },
-                focusedBox ? classes.focused : '',
+                hasFocusRing ? classes.focused : '',
                 className,
               )}
             >
@@ -148,7 +145,7 @@ export class TextArea extends React.Component<TextAreaProps, TextAreaState> {
                 onFocus={this._onFocus}
                 onBlur={this._onBlur}
                 placeholder={placeholder}
-                className={classes.textArea}
+                className={classnames(classes.textArea, 'has-custom-focus')}
                 data-hook={TEXT_AREA_DATA_HOOK}
                 aria-label={this.props.ariaLabel}
               />
