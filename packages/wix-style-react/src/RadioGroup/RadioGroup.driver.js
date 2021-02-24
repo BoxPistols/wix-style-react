@@ -7,21 +7,11 @@ const radioGroupDriverFactory = ({ element, eventTrigger }) => {
   const getOptionContainer = () =>
     element.querySelector(`[data-hook="${dataHooks.RadioOptionContainer}"]`);
 
-  const getRadioDataHookBase = () => {
-    const countedInternalHooks = element.querySelectorAll(
-      `[data-hook^="${dataHooks.RadioItem}-"]`,
-    ).length;
-
-    return countedInternalHooks !== 0
-      ? dataHooks.RadioItem
-      : element
-          .querySelectorAll('[data-custom-hook]')[0]
-          .getAttribute('data-custom-hook');
-  };
-
   const getRadios = () =>
     toArray(
-      element.querySelectorAll(`[data-hook^="${getRadioDataHookBase()}-"]`),
+      element.querySelectorAll(
+        `[data-hook^="${dataHooks.RadioContainer}-"] > :first-child`,
+      ),
     ).map(radio =>
       radioButtonDriverFactory({
         element: radio,
@@ -35,7 +25,7 @@ const radioGroupDriverFactory = ({ element, eventTrigger }) => {
   const getRadioByValue = value =>
     radioButtonDriverFactory({
       element: element.querySelector(
-        `[data-hook="${getRadioDataHookBase()}-${value}"]`,
+        `[data-hook="${dataHooks.RadioContainer}-${value}"] > :first-child`,
       ),
       eventTrigger,
       container: getOptionContainer,

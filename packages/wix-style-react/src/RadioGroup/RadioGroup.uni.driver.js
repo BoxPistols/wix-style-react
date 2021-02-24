@@ -7,26 +7,18 @@ export const radioGroupUniDriverFactory = (base, body) => {
   const getOptionContainer = () =>
     base.$(`[data-hook="${dataHooks.RadioOptionContainer}"]`);
 
-  const getRadioDataHookBase = async () => {
-    const countedInternalHooks = await base
-      .$$(`[data-hook^="${dataHooks.RadioItem}-"]`)
-      .count();
-
-    return countedInternalHooks !== 0
-      ? dataHooks.RadioItem
-      : base.$$('[data-custom-hook]').get(0).attr('data-custom-hook');
-  };
-
   const getRadios = async () =>
     await base
-      .$$(`[data-hook^="${await getRadioDataHookBase()}-"]`)
+      .$$(`[data-hook^="${dataHooks.RadioContainer}-"] > :first-child`)
       .map(radio =>
         radioButtonUniDriverFactory(radio, body, getOptionContainer),
       );
 
   const getRadioByValue = async value =>
     radioButtonUniDriverFactory(
-      base.$(`[data-hook="${await getRadioDataHookBase()}-${value}"]`),
+      base.$(
+        `[data-hook="${dataHooks.RadioContainer}-${value}"] > :first-child`,
+      ),
       body,
       getOptionContainer,
     );

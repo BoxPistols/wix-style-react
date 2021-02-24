@@ -170,21 +170,27 @@ describe(RadioGroup.displayName, () => {
 
     describe('RadioGroup.Radio', () => {
       it('selectByValue should work with custom dataHook applied', async () => {
-        const CustomRadioGroup = () => (
-          <RadioGroup>
-            <RadioGroup.Radio dataHook="custom-12" value="1">
-              Option 1
-            </RadioGroup.Radio>
-            <RadioGroup.Radio dataHook="custom-13" value="2">
-              Option 2
-            </RadioGroup.Radio>
-          </RadioGroup>
-        );
+        const CustomRadioGroup = () => {
+          const [radioValue, setRadioValue] = React.useState(null);
+          return (
+            <RadioGroup
+              value={radioValue}
+              onChange={value => setRadioValue(value)}
+            >
+              <RadioGroup.Radio dataHook="custom-yes" value="yes">
+                Option 1
+              </RadioGroup.Radio>
+              <RadioGroup.Radio dataHook="custom-no" value="no">
+                Option 2
+              </RadioGroup.Radio>
+            </RadioGroup>
+          );
+        };
 
         const { driver } = createDriver(<CustomRadioGroup />);
 
-        await driver.selectByValue('1');
-        expect(await driver.getSelectedValue()).toBe(null);
+        await driver.selectByValue('no');
+        expect(await driver.getSelectedValue()).toBe('no');
       });
     });
 
