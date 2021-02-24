@@ -64,7 +64,7 @@
 
 .wsrAddItemRoot {
     -st-extends: AddItem;
-    -st-states: rtl, hasError, direction(enum(horizontal, vertical)), noChildren;
+    -st-states: rtl, hasError, direction(enum(horizontal, vertical)), alignment(enum(left, right)), noChildren;
 }
 
 .wsrAddItemRoot:theme(dashes) {
@@ -81,14 +81,8 @@
     background-color: value(CurrentBackgroundColor);
 }
 
-.wsrAddItemRoot:size(small) {
-  padding: 12px 30px;
-}
-
-.wsrAddItemRoot:size(medium) {
-  padding: 12px 30px;
-}
-
+.wsrAddItemRoot:size(small),
+.wsrAddItemRoot:size(medium),
 .wsrAddItemRoot:size(large) {
   padding: 12px 30px;
 }
@@ -137,6 +131,11 @@
 }
 
 .wsrAddItemRoot:size(tiny)::icon {
+    margin: 0;
+}
+
+.wsrAddItemRoot:size(tiny):alignment(left)::icon,
+.wsrAddItemRoot:size(tiny):alignment(right)::icon {
     margin: 0;
 }
 
