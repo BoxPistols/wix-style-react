@@ -102,6 +102,7 @@
 .textArea:hover,
 .textArea:focus
 {
+    box-shadow: none !important;
     overflow: auto;
 }
 
