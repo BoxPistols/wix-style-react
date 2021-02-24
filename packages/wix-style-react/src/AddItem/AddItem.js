@@ -203,7 +203,7 @@ class AddItem extends Component {
           disabled,
         })}
       >
-        <div className={st(classes.content, { size })}>
+        <div className={st(classes.content, { size, alignItems })}>
           {showIcon && this._renderIcon()}
           {this._renderText()}
         </div>

@@ -211,7 +211,7 @@
 /* Content */
 
 .content {
-  -st-states: size(enum(tiny));
+  -st-states: size(enum(tiny)), alignItems(enum(left, right));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -225,6 +225,11 @@
 .content:size(tiny) .illustration {
   flex-shrink: 0;
   margin: 0px 6px;
+}
+
+.content:size(tiny):alignItems(left) .icon,
+.content:size(tiny):alignItems(right) .icon {
+  margin: 0 6px 0 0;
 }
 
 .illustration {

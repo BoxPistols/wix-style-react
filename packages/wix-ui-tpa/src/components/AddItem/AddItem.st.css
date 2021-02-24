@@ -136,6 +136,10 @@
     flex-shrink: 0;
 }
 
+.wsrAddItemRoot:size(tiny)::icon {
+    margin: 0;
+}
+
 .wsrAddItemRoot:direction(vertical)::textWrapper {
     width: 100%;
     padding-top: 6px;
