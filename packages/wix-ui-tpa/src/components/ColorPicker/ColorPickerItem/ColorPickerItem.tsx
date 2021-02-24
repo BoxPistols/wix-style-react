@@ -9,6 +9,7 @@ import {
 import { Tooltip } from '../../Tooltip';
 import { MobileTooltip } from './MobileTooltip';
 import { TPAComponentsConsumer } from '../../TPAComponentsConfig';
+import { TOOLTIP_COMMON_PROPS } from './tooltipCommonProps';
 import classnames from 'classnames';
 
 export interface ColorPickerItemProps extends RadioButtonProps {
