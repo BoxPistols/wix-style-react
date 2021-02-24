@@ -23,6 +23,6 @@ describe('ColorPicker', () => {
   });
 
   eyes.it('should show the correct design on focus', async () => {
-    await browser.actions().sendKeys(Key.TAB, Key.ARROW_DOWN ,Key.ARROW_DOWN);
+    await browser.actions().sendKeys(Key.TAB, Key.ARROW_DOWN, Key.ARROW_DOWN);
   });
 });

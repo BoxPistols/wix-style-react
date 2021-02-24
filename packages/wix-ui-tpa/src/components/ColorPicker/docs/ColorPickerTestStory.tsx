@@ -1,17 +1,17 @@
-import { storiesOf } from "@storybook/react";
-import * as React from "react";
-import { ColorPicker } from "..";
-import { StoryCategory } from "../../../../stories/storyHierarchy";
+import { storiesOf } from '@storybook/react';
+import * as React from 'react';
+import { ColorPicker } from '..';
+import { StoryCategory } from '../../../../stories/storyHierarchy';
 
 function ColorPickerTest(props?: any) {
-  const [selectedColorName, setSelectedColorName] = React.useState("white");
+  const [selectedColorName, setSelectedColorName] = React.useState('white');
   const _onChange = (value) => setSelectedColorName(value);
 
   const PRODUCT_COLORS = {
-    1: "white",
-    2: "lightblue",
-    3: "#ffcc66",
-    4: "#00cc66",
+    1: 'white',
+    2: 'lightblue',
+    3: '#ffcc66',
+    4: '#00cc66',
   };
 
   return (
@@ -25,32 +25,32 @@ function ColorPickerTest(props?: any) {
           aria-label="white color"
           value={PRODUCT_COLORS[1]}
           checked={selectedColorName === PRODUCT_COLORS[1]}
-          withFocusRing={true}
+          withFocusRing
         />
         <ColorPicker.Item
           key={2}
           aria-label="light blue color"
           value={PRODUCT_COLORS[2]}
           checked={selectedColorName === PRODUCT_COLORS[2]}
-          withFocusRing={true}
+          withFocusRing
         />
         <ColorPicker.Item
           key={3}
           aria-label="orange color"
           value={PRODUCT_COLORS[3]}
           checked={selectedColorName === PRODUCT_COLORS[3]}
-          withFocusRing={true}
+          withFocusRing
         />
         <ColorPicker.Item
           key={4}
           aria-label="green color"
           value={PRODUCT_COLORS[4]}
           checked={selectedColorName === PRODUCT_COLORS[4]}
-          withFocusRing={true}
+          withFocusRing
         />
       </ColorPicker>
     </>
   );
 }
 
-storiesOf(StoryCategory.TESTS, module).add("ColorPicker", ColorPickerTest);
+storiesOf(StoryCategory.TESTS, module).add('ColorPicker', ColorPickerTest);

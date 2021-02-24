@@ -46,7 +46,8 @@ export class ColorPickerItem extends React.Component<
   getRadioVisual = ({ value }: ColorPickerItemProps) => (
     <div
       className={classnames(classes.radioOuter, {
-        [classes.focused]: this.props.withFocusRing && this.state.focusedByKeyboard,
+        [classes.focused]:
+          this.props.withFocusRing && this.state.focusedByKeyboard,
       })}
     >
       <div
@@ -90,7 +91,7 @@ export class ColorPickerItem extends React.Component<
       },
       onBlur: () => {
         this.setState({ focusedByKeyboard: false });
-      }
+      },
     };
   };
 
