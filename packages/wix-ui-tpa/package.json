@@ -85,6 +85,9 @@
     "yoshi-stylable-dependencies": "^4.86.0",
     "date-fns": "^2.16.1"
   },
+  "devDependencies": {
+    "@wix/wix-base-ui": "^3.949.0"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
