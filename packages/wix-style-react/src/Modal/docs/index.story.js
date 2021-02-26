@@ -19,7 +19,7 @@ import { storySettings } from '../test/storySettings';
 import SimpleExample from '!raw-loader!./examples/SimpleExample';
 import ModalWithCloseButton from '!raw-loader!./examples/ModalWithCloseButton';
 import allComponents from '../../../stories/utils/allComponents';
-
+import * as examples from './examples';
 import { Modal, Box, Button } from 'wix-style-react';
 
 const example = config => baseExample({ components: allComponents, ...config });
@@ -66,7 +66,12 @@ export default {
           columns([
             description({
               title: 'Description',
-              text: 'Accessible modal dialog component',
+              text: `
+              Modal controls the overlay layout that appears on call functions. It’s a container for components like \`CustomModalLayout\`, \`ModalPreviewLayout\` and others.<br/>
+              Use it:<br/>
+              &emsp;- To reveal all types of modal layouts<br/>
+              &emsp;- To display a full page loading state<br/>
+              `,
             }),
           ]),
 
@@ -75,6 +80,16 @@ export default {
           divider(),
 
           title('Examples'),
+
+          example({
+            title: 'Structure',
+            text: `
+            Render modal content by using \`children\` prop. Control modal appearance with props:<br/>
+              &emsp;- \`isOpen\` - this bool prop shows and hides the modal.<br/>
+              &emsp;- \`onRequestClose\` - this prop calls a function you request. It can be used to control isOpen prop.<br/>
+            `,
+            source: examples.structure,
+          }),
 
           example({
             title: 'Simple Example',
