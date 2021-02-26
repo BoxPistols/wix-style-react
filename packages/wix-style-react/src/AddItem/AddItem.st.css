@@ -39,7 +39,7 @@
 
 .root {
   -st-extends: Focusable;
-  -st-states: theme(enum(dashes, plain, filled, image)), size(enum(tiny, small, medium, large)), removePadding, disabled;
+  -st-states: theme(enum(dashes, plain, filled, image)), size(enum(tiny, small, medium, large)), alignItems(enum(left, right, center)), removePadding, disabled;
   display: flex;
   height: 100%;
   width: 100%;
@@ -169,6 +169,21 @@
   background-color: value(D70);
 }
 
+.root:size(tiny) .icon,
+.root:size(tiny) .illustration {
+  flex-shrink: 0;
+  margin: 0px 6px;
+}
+
+.root:size(tiny):alignItems(left) .icon,
+.root:size(tiny):alignItems(right) .icon {
+  margin: 0 6px 0 0;
+}
+
+.illustration {
+  background-color: initial;
+}
+
 /* Content container */
 
 .contentContainer {
@@ -211,7 +226,7 @@
 /* Content */
 
 .content {
-  -st-states: size(enum(tiny)), alignItems(enum(left, right));
+  -st-states: size(enum(tiny));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -219,21 +234,6 @@
 
 .content:size(tiny) {
   flex-direction: row;
-}
-
-.content:size(tiny) .icon,
-.content:size(tiny) .illustration {
-  flex-shrink: 0;
-  margin: 0px 6px;
-}
-
-.content:size(tiny):alignItems(left) .icon,
-.content:size(tiny):alignItems(right) .icon {
-  margin: 0 6px 0 0;
-}
-
-.illustration {
-  background-color: initial;
 }
 
 /* Text */

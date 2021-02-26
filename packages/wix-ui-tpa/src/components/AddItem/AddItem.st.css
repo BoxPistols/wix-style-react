@@ -64,7 +64,7 @@
 
 .wsrAddItemRoot {
     -st-extends: AddItem;
-    -st-states: rtl, hasError, direction(enum(horizontal, vertical)), alignment(enum(left, right)), noChildren;
+    -st-states: rtl, hasError, direction(enum(horizontal, vertical)), noChildren;
 }
 
 .wsrAddItemRoot:theme(dashes) {
@@ -134,8 +134,8 @@
     margin: 0;
 }
 
-.wsrAddItemRoot:size(tiny):alignment(left)::icon,
-.wsrAddItemRoot:size(tiny):alignment(right)::icon {
+.wsrAddItemRoot:size(tiny):alignItems(left)::icon,
+.wsrAddItemRoot:size(tiny):alignItems(right)::icon {
     margin: 0;
 }
 

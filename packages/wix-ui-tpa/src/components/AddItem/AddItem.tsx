@@ -103,7 +103,7 @@ export class AddItem extends React.Component<AddItemProps> {
             <WSRAddItem
               className={st(
                 classes.wsrAddItemRoot,
-                { rtl, hasError, direction, noChildren, alignment },
+                { rtl, hasError, direction, noChildren },
                 className,
               )}
               dataHook={DATA_HOOKS.ADD_ITEM}

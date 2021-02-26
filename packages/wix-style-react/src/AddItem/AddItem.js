@@ -203,7 +203,7 @@ class AddItem extends Component {
           disabled,
         })}
       >
-        <div className={st(classes.content, { size, alignItems })}>
+        <div className={st(classes.content, { size })}>
           {showIcon && this._renderIcon()}
           {this._renderText()}
         </div>
@@ -241,6 +241,7 @@ class AddItem extends Component {
       ariaLabel,
       ariaLabelledBy,
       size,
+      alignItems,
     } = this.props;
 
     return (
@@ -252,7 +253,7 @@ class AddItem extends Component {
         <button
           className={st(
             classes.root,
-            { theme, size, removePadding, borderRadius, disabled },
+            { theme, size, removePadding, borderRadius, disabled, alignItems },
             className,
           )}
           style={borderRadius && { borderRadius }}
